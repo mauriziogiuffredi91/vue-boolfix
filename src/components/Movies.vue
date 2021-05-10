@@ -38,7 +38,7 @@ export default {
             axios.get(this.apiURLmovies, {
                 params: {
                     api_key:'8c6d856864a9db7703ff46ed6c4bd7bf',
-                    queryAPI: 'fantozzi',
+                    query: 'fantozzi',
                 }
             })
             .then(result => {

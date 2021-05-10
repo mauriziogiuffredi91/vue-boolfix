@@ -1,20 +1,35 @@
 <template>
     <section class="movies">
 
-        <div class="box-movies">
-        <ul>
-            <li>
-                <h3>Titolo</h3>
+        <div 
+            v-for="movie in movieList"
+            :key="movie.id"
+            class="box-movies"
+        >
+            <ul>
+                <li><h3>Titolo: {{movie.title}}</h3></li>
 
-                <h3>Titolo Originale</h3>
+                <li><h3>Titolo originale: {{ movie.original_title}}</h3></li>
 
-                <h3>Lingua</h3>
+                <li><h3>Lingua: {{movie.original_language}}</h3></li>
 
-                <h3>Voto</h3>
-            </li>
-        </ul>
+                <li><h3>Voto medio: {{movie.vote_average}}</h3></li>
 
+            </ul>
+            
         </div>
+
+            
+                
+            
+                
+            
+                
+
+                
+            
+        
+
     </section>
 </template>
 
@@ -42,7 +57,9 @@ export default {
                 }
             })
             .then(result => {
-                console.log(result.data);
+                console.log(result.data.results);
+                /*parametro per trasformare l'array movie list in array api*/
+                this.movieList = result.data.results;
             })
             .catch(error => {
                 console.log('Errore', error);
@@ -52,6 +69,10 @@ export default {
 }
 </script>
 
-<style>
+<style lang='scss' scoped>
+    .box-movies ul{
+        margin: 20px 0;
+        border: 1px solid black;
+    }
 
 </style>

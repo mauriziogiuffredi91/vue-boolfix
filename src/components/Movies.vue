@@ -1,6 +1,9 @@
 <template>
     <section class="movies">
 
+        <div class="search-box">
+            <Search/>
+        </div>
         <div 
             v-for="movie in movieList"
             :key="movie.id"
@@ -35,8 +38,12 @@
 
 <script>
 import axios from 'axios';
+import Search from '@/components/Search.vue';
 export default {
     name:'Movies',
+    components: {
+        Search,
+    },
     data(){
         return{
             apiURLmovies: 'https://api.themoviedb.org/3/search/movie',
@@ -53,7 +60,7 @@ export default {
             axios.get(this.apiURLmovies, {
                 params: {
                     api_key:'8c6d856864a9db7703ff46ed6c4bd7bf',
-                    query: 'fantozzi',
+                    query: 'movies',
                 }
             })
             .then(result => {
@@ -65,6 +72,8 @@ export default {
                 console.log('Errore', error);
             });
         }
+
+
     }
 }
 </script>

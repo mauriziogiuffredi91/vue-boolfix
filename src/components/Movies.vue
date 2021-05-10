@@ -4,19 +4,29 @@
         <div class="search-box">
             <Search @perfSearch="getMovies"/>
         </div>
-        <div 
-            v-for="movie in filterMovies"
-            :key="movie.id"
-            class="box-movies"
-        >
+        <div> 
+            
+        
             <ul>
-                <li><h3>Titolo: {{movie.title}}</h3></li>
+                <li
+                    v-for="(movie, index) in filterMovies"
+                    :key="index"
+                    class="box-movies"
+                
+                
+                >
+                    
+                    
+                    <h3>{{movie.title}}</h3>
+                
+                    <h3>{{ movie.original_title}}</h3>
 
-                <li><h3>Titolo originale: {{ movie.original_title}}</h3></li>
+                    <h3>{{movie.original_language}}</h3>
 
-                <li><h3>Lingua: {{movie.original_language}}</h3></li>
+                    <h3>{{movie.vote_average}}</h3>
+                
+                </li>
 
-                <li><h3>Voto medio: {{movie.vote_average}}</h3></li>
 
             </ul>
             
@@ -77,18 +87,20 @@ export default {
             })
             .then(res => {
                 console.log(res.data.results);
+                this.movieList = res.data.results;
             })
             .catch(err => {
                 console.log(err);
             });
         },
 
+        /*Funzione che serve per tornare in uno stato vuoto*/
         searchElement(text){
             console.log('test', text);
 
             this.searchingMovies = text;
         },
-
+    
 
     },
 };

@@ -4,33 +4,37 @@
         <div class="search-box">
             <Search @perfSearch="getMovies"/>
         </div>
-        <div> 
+        <div
+            v-for="(movie, index) in filterMovies"
+            :key="index"
+            class="box-movies"
+
+        
+        > 
             
         
             <ul>
-                <li
-                    v-for="(movie, index) in filterMovies"
-                    :key="index"
-                    class="box-movies"
-                
-                
-                >
+                <li> <h3>Titolo: {{movie.title}}</h3> </li>
                     
-                    
-                    <h3>{{movie.title}}</h3>
-                
-                    <h3>{{ movie.original_title}}</h3>
+                <li><h3>Titolo originale: {{ movie.original_title}}</h3></li> 
 
-                    <h3>{{movie.original_language}}</h3>
+                <li><h3>Lingua: {{movie.original_language}}</h3></li>
 
-                    <h3>{{movie.vote_average}}</h3>
+                <li><h3>Voto: {{movie.vote_average}}</h3></li>
                 
-                </li>
+                
 
 
             </ul>
-            
+                
+                
         </div>
+                
+                    
+                    
+                    
+                
+            
 
             
                 

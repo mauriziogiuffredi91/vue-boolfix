@@ -2,10 +2,10 @@
     <section class="movies">
 
         <div class="search-box">
-            <Search @perfSearch="searchElement"/>
+            <Search @perfSearch="getMovies"/>
         </div>
         <div 
-            v-for="movie in filterMovie"
+            v-for="movie in filterMovies"
             :key="movie.id"
             class="box-movies"
         >
@@ -48,7 +48,7 @@ export default {
         return{
             apiURLmovies: 'https://api.themoviedb.org/3/search/movie',
             movieList: [],
-            loading: true,
+            
             searchingMovies:'',
         }
 
@@ -64,24 +64,22 @@ export default {
             })
         }
     },
-    created(){
-        this.getMovies()
-    },
+    
     methods: {
-        getMovies(){
+        getMovies(element){
+            // Call API
             axios.get(this.apiURLmovies, {
                 params: {
-                    api_key:'8c6d856864a9db7703ff46ed6c4bd7bf',
-                    query: 'fantozzi',
+                    api_key: '8c6d856864a9db7703ff46ed6c4bd7bf',
+                    query: element,
+                    /* bastava davvero mettere element, ossia il parametro della funzione al posto di this.search, eravamo vicini*/
                 }
             })
-            .then(result => {
-                console.log(result.data.results);
-                /*parametro per trasformare l'array movie list in array api*/
-                this.movieList = result.data.results;
+            .then(res => {
+                console.log(res.data.results);
             })
-            .catch(error => {
-                console.log('Errore', error);
+            .catch(err => {
+                console.log(err);
             });
         },
 

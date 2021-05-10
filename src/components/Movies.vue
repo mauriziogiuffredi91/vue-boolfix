@@ -95,7 +95,7 @@ export default {
                 this.movieList = res.data.results;
             })
             .catch(err => {
-                console.log(err);
+                console.log('Errore', err);
             });
         },
 

@@ -86,6 +86,7 @@ export default {
                 params: {
                     api_key: '8c6d856864a9db7703ff46ed6c4bd7bf',
                     query: element,
+                    language: 'it-IT',
                     /* bastava davvero mettere element, ossia il parametro della funzione al posto di this.search, eravamo vicini*/
                 }
             })

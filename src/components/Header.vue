@@ -1,6 +1,6 @@
 <template>
     <header>
-
+        <input type="text" placeholder="text here">
     </header>
 </template>
 

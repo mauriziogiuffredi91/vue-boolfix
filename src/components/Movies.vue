@@ -1,6 +1,20 @@
 <template>
     <section class="movies">
-        movies here
+
+        <div class="box-movies">
+        <ul>
+            <li>
+                <h3>Titolo</h3>
+
+                <h3>Titolo Originale</h3>
+
+                <h3>Lingua</h3>
+
+                <h3>Voto</h3>
+            </li>
+        </ul>
+
+        </div>
     </section>
 </template>
 
@@ -24,7 +38,7 @@ export default {
             axios.get(this.apiURLmovies, {
                 params: {
                     api_key:'8c6d856864a9db7703ff46ed6c4bd7bf',
-                    query: 'fantozzi',
+                    queryAPI: 'fantozzi',
                 }
             })
             .then(result => {

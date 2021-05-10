@@ -2,10 +2,10 @@
     <section class="movies">
 
         <div class="search-box">
-            <Search/>
+            <Search @perfSearch="searchElement"/>
         </div>
         <div 
-            v-for="movie in movieList"
+            v-for="movie in filterMovie"
             :key="movie.id"
             class="box-movies"
         >
@@ -49,8 +49,20 @@ export default {
             apiURLmovies: 'https://api.themoviedb.org/3/search/movie',
             movieList: [],
             loading: true,
+            searchingMovies:'',
         }
 
+    },
+    computed:{
+        filterMovies(){
+            if(this.searchingMovies === ''){
+                return this.movieList;
+            }
+
+            return this.movieList.filter(element => {
+                return element.title.toLowerCase().includes(this.searchingMovies.toLowerCase());
+            })
+        }
     },
     created(){
         this.getMovies()
@@ -60,7 +72,7 @@ export default {
             axios.get(this.apiURLmovies, {
                 params: {
                     api_key:'8c6d856864a9db7703ff46ed6c4bd7bf',
-                    query: 'movies',
+                    query: 'fantozzi',
                 }
             })
             .then(result => {
@@ -71,11 +83,17 @@ export default {
             .catch(error => {
                 console.log('Errore', error);
             });
-        }
+        },
+
+        searchElement(text){
+            console.log('test', text);
+
+            this.searchingMovies = text;
+        },
 
 
-    }
-}
+    },
+};
 </script>
 
 <style lang='scss' scoped>

@@ -3,7 +3,7 @@
         <input 
             type="text" 
             placeholder="text here"
-            v-model="searchText"
+            v-model.trim="searchText"
         >
 
         <button 

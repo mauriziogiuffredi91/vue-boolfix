@@ -24,7 +24,14 @@
                         Lingua: <img :src="require(`@/assets/img/${movie.original_language}.png`)" alt="flags">
                     </h3>
                 </li>
+                <li v-else
+                    
+                >
+                    <h3>
+                        Lingua: {{movie.original_language}}
+                    </h3>
 
+                </li>
                 <li><h3>Voto: {{movie.vote_average}}</h3></li>
                 
                 
@@ -61,6 +68,11 @@ export default {
     .box-movies ul{
         margin: 20px 0;
         border: 1px solid black;
+
+        li img{
+            width: 30px;
+            
+        }
     }
 
 

@@ -49,41 +49,46 @@ export default {
 
   methods: {
     getMovies(element){
+      if(element === ''){
+        this.movieList = [];
+        this.serieList = [];
+      }else{
 
-      // Call API movie
-      axios.get(this.apiURLmovies, {
-        params: {
-          api_key: '8c6d856864a9db7703ff46ed6c4bd7bf',
-          query: element,
-          language: 'it-IT',
-          /* bastava davvero mettere element, ossia il parametro della funzione al posto di this.search, eravamo vicini*/
-        }
-      })
-      .then(res => {
-        console.log(res.data.results);
-        this.movieList = res.data.results;
-      })
-      .catch(err => {
-        console.log('Errore', err);
-      });
-
-
-      //Call API Serie
-      axios.get(this.apiURLseries, {
-        params: {
-          api_key: '8c6d856864a9db7703ff46ed6c4bd7bf',
-          query: element,
-          language: 'it-IT',
-          /* bastava davvero mettere element, ossia il parametro della funzione al posto di this.search, eravamo vicini*/
-        }
-      })
-      .then(res => {
-        console.log(res.data.results);
-        this.serieList = res.data.results;
-      })
-      .catch(err => {
-        console.log('Errore', err);
-      });
+        // Call API movie
+        axios.get(this.apiURLmovies, {
+          params: {
+            api_key: '8c6d856864a9db7703ff46ed6c4bd7bf',
+            query: element,
+            language: 'it-IT',
+            /* bastava davvero mettere element, ossia il parametro della funzione al posto di this.search, eravamo vicini*/
+          }
+        })
+        .then(res => {
+          console.log(res.data.results);
+          this.movieList = res.data.results;
+        })
+        .catch(err => {
+          console.log('Errore', err);
+        });
+  
+  
+        //Call API Serie
+        axios.get(this.apiURLseries, {
+          params: {
+            api_key: '8c6d856864a9db7703ff46ed6c4bd7bf',
+            query: element,
+            language: 'it-IT',
+            /* bastava davvero mettere element, ossia il parametro della funzione al posto di this.search, eravamo vicini*/
+          }
+        })
+        .then(res => {
+          console.log(res.data.results);
+          this.serieList = res.data.results;
+        })
+        .catch(err => {
+          console.log('Errore', err);
+        });
+      }
 
     },
 

@@ -12,8 +12,12 @@
         
         > 
             
-        
+
             <ul>
+
+                <li>
+                    <img :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`" alt="img prodotto">
+                </li>
                 <li> <h3>Titolo: {{movie.title == null ? movie.name : movie.title}}</h3> </li>
                     
                 <li><h3>Titolo originale: {{ movie.original_title == null ? movie.original_name : movie.original_title}}</h3></li> 
@@ -21,7 +25,7 @@
                 <li v-if="flagsList.includes(movie.original_language)"
                 >   
                     <h3>
-                        Lingua: <img :src="require(`@/assets/img/${movie.original_language}.png`)" alt="flags">
+                        Lingua: <img class="flag" :src="require(`@/assets/img/${movie.original_language}.png`)" alt="flags">
                     </h3>
                 </li>
                 <li v-else
@@ -69,7 +73,7 @@ export default {
         margin: 20px 0;
         border: 1px solid black;
 
-        li img{
+        li .flag{
             width: 30px;
             
         }

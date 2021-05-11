@@ -36,7 +36,16 @@
                     </h3>
 
                 </li>
-                <li><h3>Voto: {{Math.ceil((movie.vote_average)/2)}}</h3></li>
+                <li
+                    v-for="(star, index) in Math.ceil((movie.vote_average)/2)"
+                    :key="index"
+                
+                >
+
+                    <!-- ci vogliono le stelle al posto dei h3 font awesome -->
+                    <h3>Voto: {{Math.ceil((movie.vote_average)/2) === 0 ? 'Non classificabile' : Math.ceil((movie.vote_average)/2)}}</h3>
+                
+                </li>
                 
                 
 
@@ -60,6 +69,23 @@ export default {
     data(){
         return{
             flagsList:['it', 'en'],
+            votoBase: 0,
+             
+        }
+
+    },
+    computed:{
+        
+        getVote(array, voto){
+            array = this.arrayMovie;
+            voto = this.votoBase;
+           
+            return console.log(voto);
+            
+            //this.arrayMovie.movie.vote_average = this.voto;
+            //number = this.arrayMovie.movie.vote_average;
+            
+            //return Math.ceil((number)/2) === 0 ? 'Non classificabile' : Math.ceil((number)/2);
         }
     }
 

@@ -1,9 +1,22 @@
 <template>
     <section class="movies">
 
-        <div class="search-box">
-            <Search @perfSearch="getMovies"/>
-        </div>
+        <header class="nav">
+
+            <div class="nav-left">
+                <a href="https://fontmeme.com/netflix-font/">
+                    <img src="https://fontmeme.com/permalink/210510/118a19bf945a6213de0a49fdb190e65d.png" alt="netflix-font" border="0">
+                </a>
+
+            </div>
+
+
+            <div class="nav-right">
+                <Search @perfSearch="getMovies"/>
+            </div>
+        </header>
+        
+        
         <div
             v-for="(movie, index) in filterMovies"
             :key="index"
@@ -53,10 +66,12 @@
 <script>
 import axios from 'axios';
 import Search from '@/components/Search.vue';
+
 export default {
     name:'Movies',
     components: {
         Search,
+        
     },
     data(){
         return{
@@ -112,6 +127,20 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+
+    .nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+
+        .nav-left{
+            img{
+                width: 200px;
+            }
+        }
+        
+    }
     .box-movies ul{
         margin: 20px 0;
         border: 1px solid black;

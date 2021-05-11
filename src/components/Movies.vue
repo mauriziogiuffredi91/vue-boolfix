@@ -36,7 +36,7 @@
                     </h3>
 
                 </li>
-                <li><h3>Voto: {{movie.vote_average}}</h3></li>
+                <li><h3>Voto: {{Math.ceil((movie.vote_average)/2)}}</h3></li>
                 
                 
 

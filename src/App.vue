@@ -20,32 +20,38 @@ export default {
     return{
       apiURLmovies: 'https://api.themoviedb.org/3/search/movie',
       movieList: [],
+      searchingMovies: '',
       
-      searchingMovies:'',
     }
 
   },
+  
+  /*funzione di ritorno a vuoto */
   computed:{
     filterMovies(){
+      
       if(this.searchingMovies === ''){
-          return this.movieList;
+        return this.movieList;
       }
 
       return this.movieList.filter(element => {
-          return element.title.toLowerCase().includes(this.searchingMovies.toLowerCase());
+        return element.title.toLowerCase().includes(this.searchingMovies.toLowerCase());
       })
     }
   },
+
+  
+  
 
   methods: {
     getMovies(element){
       // Call API
       axios.get(this.apiURLmovies, {
         params: {
-            api_key: '8c6d856864a9db7703ff46ed6c4bd7bf',
-            query: element,
-            language: 'it-IT',
-            /* bastava davvero mettere element, ossia il parametro della funzione al posto di this.search, eravamo vicini*/
+          api_key: '8c6d856864a9db7703ff46ed6c4bd7bf',
+          query: element,
+          language: 'it-IT',
+          /* bastava davvero mettere element, ossia il parametro della funzione al posto di this.search, eravamo vicini*/
         }
       })
       .then(res => {
@@ -56,7 +62,17 @@ export default {
         console.log('Errore', err);
       });
     },
+
+
+    /*funzione di ritorno a vuoto testo*/ 
+    searchFilm(text){
+      console.log(text);
+
+      this.searchingMovies = text;
+
+    }
   },
+
     
 }
 </script>

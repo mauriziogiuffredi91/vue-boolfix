@@ -18,7 +18,12 @@
                     
                 <li><h3>Titolo originale: {{ movie.original_title}}</h3></li> 
 
-                <li><h3>Lingua: {{movie.original_language}}</h3></li>
+                <li v-if="flagsList.includes(movie.original_language)"
+                >   
+                    <h3>
+                        Lingua: <img :src="require(`@/assets/img/${movie.original_language}.png`)" alt="flags">
+                    </h3>
+                </li>
 
                 <li><h3>Voto: {{movie.vote_average}}</h3></li>
                 
@@ -40,6 +45,12 @@
 export default {
     name:'Movies',
     props:['arrayMovie'],
+
+    data(){
+        return{
+            flagsList:['it', 'en'],
+        }
+    }
 
     
 };

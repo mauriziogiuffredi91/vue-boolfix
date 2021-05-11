@@ -22,13 +22,15 @@ export default {
       apiURLmovies: 'https://api.themoviedb.org/3/search/movie',
       movieList: [],
       serieList:[],
-      searchingMovies: '',
+      //searchingMovies: '', per un eventuale reset
       
     }
 
   },
   
-  /*funzione di ritorno a vuoto */
+  /*funzione di ritorno a vuoto input */
+
+  /*
   computed:{
     filterMovies(){
       
@@ -42,7 +44,7 @@ export default {
     }
   },
 
-  
+  */
   
 
   methods: {
@@ -86,13 +88,17 @@ export default {
     },
 
 
-    /*funzione di ritorno a vuoto testo*/ 
+    /*funzione di ritorno a vuoto input*/ 
+
+    /*
     searchFilm(text){
       console.log(text);
 
       this.searchingMovies = text;
 
     }
+
+    */
   },
 
     

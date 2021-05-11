@@ -12,15 +12,15 @@
             type="text" 
             placeholder="text here"
             v-model.trim="searchText"
-        >
+            >
 
-        <button 
-            class="searchBtn" 
-            type="submit" 
-            @click.prevent="$emit('perfSearch', searchText)"
-        >
-            Search
-        </button>
+            <button 
+                class="searchBtn" 
+                type="submit" 
+                @click.prevent="$emit('perfSearch', searchText)"
+            >
+                Search
+            </button>
         </div>
     </header>
 </template>

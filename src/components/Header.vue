@@ -9,16 +9,21 @@
         </div>
         <div class="nav-right">
             <input 
-            type="text" 
-            placeholder="text here"
-            v-model.trim="searchText"
+                type="text" 
+                placeholder="text here"
+                v-model.trim="searchText"
+
             >
+                
+
+            
 
             <button 
                 class="searchBtn" 
                 type="submit" 
                 @click.prevent="$emit('perfSearch', searchText)"
             >
+                
                 Search
             </button>
         </div>
@@ -35,6 +40,8 @@ export default {
             searchText:'',
         };
     },
+
+    
 };
 </script>
 

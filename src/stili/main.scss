@@ -21,15 +21,18 @@ h3{
     color: $text-color;
 }
 
-.box-movies{
-    background-color: #2a2b2d;
-    margin-top: 20px;
-    margin-right: 49px;
-    flex-basis: calc(100%/5);
-       
-    
+.movies{
+    display: flex;
+    flex-wrap: wrap;
 }
 
-// .box-movies:last-of-type{
-//     margin-right: 0;
-// }
+
+    
+    
+       
+    
+
+li{
+    list-style: none;
+}
+

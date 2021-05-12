@@ -5,13 +5,22 @@
         <h2>Nerdflix a casa tua</h2>
         
         
-        <div class="contain">
+        <div class="contain"
+            v-for="(movie, index) in arrayMovie"
+            :key="index"
+            
+            
+        >
+
+            <img 
+                :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`" 
+                alt="Immagine non trovata"
+                
+            >
 
             
             <ul
-                v-for="(movie, index) in arrayMovie"
-                :key="index"
-                class="box-movies"
+               class="box-movies" 
             
             
             >
@@ -19,7 +28,7 @@
 
 
                 
-                <img :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`" alt="Immagine non trovata">
+                
                 
                 <li> <h3>Titolo: {{movie.title == undefined ? movie.name : movie.title}}</h3> </li>
                     
@@ -109,15 +118,17 @@ export default {
     .movies{
         max-width: 1600px;
         margin: 0 auto;
-        .contain{
-            display: flex;
-            flex-wrap: wrap;
-            display: flex;
-            padding-left: 36px;
+        margin-top: 20px;
+    
+        .box-movies{
+            flex-basis: calc(100%/5);
+            
+            
 
 
             li .flag{
                 width: 30px;
+                
 
             }
 

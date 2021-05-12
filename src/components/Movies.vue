@@ -37,17 +37,21 @@
                 </li>
                 
                 
-
-                <li>
+                
                     
-                    <!-- ci vogliono le stelle al posto dei h3 font awesome -->
-                    <h3>Voto: {{Math.ceil((movie.vote_average)/2) === 0 ? 'Non classificabile' : Math.ceil((movie.vote_average)/2)}}</h3>
+                
+                
 
-                    <i class="full fas fa-star"></i>
-                    <i class="empty far fa-star"></i>
+
+                
+                <Stars />
+                <!-- ci vogliono le stelle al posto dei h3 font awesome -->
+                    
 
                     
-                </li>
+
+                    
+                
                 
                 
 
@@ -66,13 +70,17 @@
 </template>
 
 <script>
+import Stars from '@/components/Stars.vue'
 
 
 
 export default {
     name:'Movies',
     props:['arrayMovie'],
-
+    components: {
+        Stars,
+    },
+        
     data(){
         return{
             flagsList:['it', 'en'],
@@ -100,9 +108,7 @@ export default {
             
         }
 
-        .full{
-            color: rgb(182, 182, 16);
-        }
+        
     }
 
 

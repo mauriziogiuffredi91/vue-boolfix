@@ -36,10 +36,20 @@
 
                 </li>
 
-                <li>
+                <li> 
+
                     
+                    
+
                 
-                    <h3>Voto: {{Math.ceil((movie.vote_average)/2) === 0 ? 'Non classificabile' : Math.ceil((movie.vote_average)/2)}}</h3> 
+                    <!-- <i class="far fa-star"></i>
+                    <h3>Voto: {{Math.ceil((movie.vote_average)/2) === 0 ? 'Non classificabile' : Math.ceil((movie.vote_average)/2)}}</h3>  -->
+
+                    
+                        
+                        
+                     
+                    
                 
 
                 </li>

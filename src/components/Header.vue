@@ -10,7 +10,7 @@
         <div class="nav-right">
             <input 
                 type="text" 
-                placeholder="text here"
+                placeholder="Cercare film/serie"
                 v-model.trim="searchText"
 
             >
@@ -24,7 +24,7 @@
                 @click.prevent="$emit('perfSearch', searchText)"
             >
                 
-                Search
+                Search 
             </button>
         </div>
     </header>

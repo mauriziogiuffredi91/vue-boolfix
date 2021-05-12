@@ -14,9 +14,9 @@
             
             >
 
-                <li>
-                    <img :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`" alt="Immagine non trovata">
-                </li>
+                
+                <img :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`" alt="Immagine non trovata">
+                
                 <li> <h3>Titolo: {{movie.title == undefined ? movie.name : movie.title}}</h3> </li>
                     
                 <li><h3>Titolo originale: {{ movie.original_title == undefined ? movie.original_name : movie.original_title}}</h3></li> 
@@ -35,6 +35,16 @@
                     </h3>
 
                 </li>
+
+                <li>
+                    
+                
+                    <h3>Voto: {{Math.ceil((movie.vote_average)/2) === 0 ? 'Non classificabile' : Math.ceil((movie.vote_average)/2)}}</h3> 
+                
+
+                </li>
+
+
                 
                 
                 
@@ -44,8 +54,8 @@
 
 
                 
-                <Stars />
-                <!-- ci vogliono le stelle al posto dei h3 font awesome -->
+                
+                
                     
 
                     
@@ -70,16 +80,14 @@
 </template>
 
 <script>
-import Stars from '@/components/Stars.vue'
+
 
 
 
 export default {
     name:'Movies',
     props:['arrayMovie'],
-    components: {
-        Stars,
-    },
+    
         
     data(){
         return{

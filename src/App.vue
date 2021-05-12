@@ -54,8 +54,10 @@ export default {
       if(element === ''){
         this.movieList = [];
         this.serieList = [];
-      }else{
+      
 
+      }else{
+          
         const apiParametri = {
           api_key: this.apiKey,
           query: element,
@@ -87,7 +89,9 @@ export default {
         .catch(err => {
           console.log('Errore', err);
         });
-      }    
+      }
+
+        
         
         
   

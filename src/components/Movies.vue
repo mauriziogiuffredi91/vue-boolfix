@@ -5,6 +5,8 @@
         
         
         <div>
+
+            <h2>Nerdflix a casa tua</h2>
             
             <ul
                 v-for="(movie, index) in arrayMovie"
@@ -13,6 +15,8 @@
             
             
             >
+
+
 
                 
                 <img :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`" alt="Immagine non trovata">

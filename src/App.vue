@@ -122,4 +122,9 @@ export default {
 
 <style lang="scss">
 
+@import '~@fontsource/farro/500.css';
+@import '@/stili/main';
+
+
+  
 </style>

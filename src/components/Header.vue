@@ -49,7 +49,7 @@ export default {
 
     
     header{
-        background-color: ;
+        background-color: transparent;
         display: flex;
         justify-content: space-between;
         align-items: center;

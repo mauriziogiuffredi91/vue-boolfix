@@ -2,11 +2,11 @@
     <section class="movies">
 
         
+        <h2>Nerdflix a casa tua</h2>
         
         
-        <div>
+        <div class="contain">
 
-            <h2>Nerdflix a casa tua</h2>
             
             <ul
                 v-for="(movie, index) in arrayMovie"
@@ -106,26 +106,32 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+    .movies{
+        max-width: 1600px;
+        margin: 0 auto;
+        .contain{
+            display: flex;
+            flex-wrap: wrap;
+            display: flex;
+            padding-left: 36px;
 
-    .box-movies{
-        margin: 20px 0;
-        border: 1px solid black;
 
-        li .flag{
-            width: 30px;
+            li .flag{
+                width: 30px;
 
+            }
+
+            i{
+                color: gray;
+                font-size: 20px;
+            }
+
+
+            i.activeStar{
+                color: #ff0022cc;
+            }
+            
         }
-
-        i{
-            color: gray;
-            font-size: 20px;
-        }
-
-
-        i.activeStar{
-            color: #ff0022cc;
-        }
-        
     }
 
 

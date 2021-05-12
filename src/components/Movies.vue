@@ -60,39 +60,10 @@
                     ></i>
                 
                     
-                    <!-- <h3>Voto: {{Math.ceil((movie.vote_average)/2) === 0 ? 'Non classificabile' : Math.ceil((movie.vote_average)/2)}}</h3>   -->
-
-                    
-                        
-                        
-                     
-                    
-                
-
                 </li>
-
-
-                
-                
-                
-                    
-                
-                
-
-
-                
-                
-                
                     
 
                     
-
-                    
-                
-                
-                
-
-
             </ul>
         
          
@@ -139,19 +110,51 @@ export default {
         li .flag{
             width: 30px;
 
-            
+        }
+
+        i{
+            color: gray;
+            font-size: 20px;
         }
 
 
-
+        i.activeStar{
+            color: #ff0022cc;
+        }
         
     }
 
-    .activeStar{
-        color: #ff0022cc;
-    }
 
 </style>
+                        
+                        
+                     
+                    
+                
+
+
+
+                
+                
+                
+                    
+                
+                
+
+
+                
+                
+                
+                    
+
+                    
+
+                    
+                
+                
+                
+
+
     
                     
                     

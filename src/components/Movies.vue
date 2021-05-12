@@ -40,10 +40,27 @@
 
                     
                     
+                    <i class="fas fa-star"
+                        :class="{activeStar:Math.ceil((movie.vote_average)/2) >= 1}"
 
+                    ></i>
+                    <i class="fas fa-star"
+                        :class="{activeStar:Math.ceil((movie.vote_average)/2) >= 2}"
+                    ></i>
+                    <i class="fas fa-star"
+                        :class="{activeStar:Math.ceil((movie.vote_average)/2) >= 3}"
+                    
+                    ></i>
+                    <i class="fas fa-star"
+                        :class="{activeStar:Math.ceil((movie.vote_average)/2) >= 4}"
+                    
+                    ></i>
+                    <i class="fas fa-star"
+                        :class="{activeStar:Math.ceil((movie.vote_average)/2) >= 5}"
+                    ></i>
                 
-                    <!-- <i class="far fa-star"></i>
-                    <h3>Voto: {{Math.ceil((movie.vote_average)/2) === 0 ? 'Non classificabile' : Math.ceil((movie.vote_average)/2)}}</h3>  -->
+                    
+                    <!-- <h3>Voto: {{Math.ceil((movie.vote_average)/2) === 0 ? 'Non classificabile' : Math.ceil((movie.vote_average)/2)}}</h3>   -->
 
                     
                         
@@ -122,13 +139,17 @@ export default {
         li .flag{
             width: 30px;
 
-
             
         }
+
+
 
         
     }
 
+    .activeStar{
+        color: #ff0022cc;
+    }
 
 </style>
     

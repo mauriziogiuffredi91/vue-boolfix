@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header @perfSearch="getMovies"/>
+    <Header @perfSearch="getProduct"/>
     <Movies :arrayMovie="movieList.concat(serieList)" />
     
   </div>
@@ -18,8 +18,8 @@ export default {
   },
   data(){
     return{
-      apiURLseries: 'https://api.themoviedb.org/3/search/tv',
-      apiURLmovies: 'https://api.themoviedb.org/3/search/movie',
+      apiURL: 'https://api.themoviedb.org/3/search/',
+      apiKey: '8c6d856864a9db7703ff46ed6c4bd7bf',
       movieList: [],
       serieList:[],
       //searchingMovies: '', per un eventuale reset
@@ -48,47 +48,50 @@ export default {
   
 
   methods: {
-    getMovies(element){
+    getProduct(element){
       if(element === ''){
         this.movieList = [];
         this.serieList = [];
       }else{
 
+        const apiParametri = {
+          api_key: this.apiKey,
+          query: element,
+          language: 'it-IT',
+        };
+
         // Call API movie
-        axios.get(this.apiURLmovies, {
-          params: {
-            api_key: '8c6d856864a9db7703ff46ed6c4bd7bf',
-            query: element,
-            language: 'it-IT',
-            /* bastava davvero mettere element, ossia il parametro della funzione al posto di this.search, eravamo vicini*/
-          }
-        })
-        .then(res => {
+        axios.get(this.apiURL + 'movie', {
+          params: apiParametri,
+            
+          
+        }).then(res => {
           console.log(res.data.results);
           this.movieList = res.data.results;
         })
         .catch(err => {
           console.log('Errore', err);
         });
-  
-  
-        //Call API Serie
-        axios.get(this.apiURLseries, {
-          params: {
-            api_key: '8c6d856864a9db7703ff46ed6c4bd7bf',
-            query: element,
-            language: 'it-IT',
-            /* bastava davvero mettere element, ossia il parametro della funzione al posto di this.search, eravamo vicini*/
-          }
-        })
-        .then(res => {
+
+        //Call API serie tv
+        axios.get(this.apiURL + 'tv', {
+          params: apiParametri,
+
+
+        }).then(res => {
           console.log(res.data.results);
           this.serieList = res.data.results;
         })
         .catch(err => {
           console.log('Errore', err);
         });
-      }
+      }    
+        
+        
+  
+  
+        
+        
 
     },
 

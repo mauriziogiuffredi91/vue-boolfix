@@ -18,9 +18,15 @@
             >
 
                 <img 
+                    v-if="movie.poster_path"
                     :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`" 
-                    alt="Immagine non trovata"
                     
+                    
+                >
+
+                <img 
+                    v-else
+                    src="@/assets/img/poster-placeholder.png" 
                 >
 
                 

@@ -1,91 +1,100 @@
 <template>
-    <section class="movies">
+    <section class="main-container">
 
         
         <h2>Nerdflix a casa tua</h2>
-        
+
+
         <Notfound v-show="foundError" />
-        <div class="contain"
-            v-for="(movie, index) in arrayMovie"
-            :key="index"
-            
-            
-        >
 
-            <img 
-                :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`" 
-                alt="Immagine non trovata"
+
+        <div class="contain">
+
+            <div class="contain-little"
+                v-for="(movie, index) in arrayMovie"
+                :key="index"
+                
                 
             >
 
-            
-            <ul
-               class="box-movies" 
-            
-            
-            >
-
-
-
-                
-                
-                
-                <li> <h3>Titolo: {{movie.title == undefined ? movie.name : movie.title}}</h3> </li>
-                    
-                <li><h3>Titolo originale: {{ movie.original_title == undefined ? movie.original_name : movie.original_title}}</h3></li> 
-
-                <li v-if="flagsList.includes(movie.original_language)"
-                >   
-                    <h3>
-                        Lingua: <img class="flag" :src="require(`@/assets/img/${movie.original_language}.png`)" alt="flags">
-                    </h3>
-                </li>
-                <li v-else
+                <img 
+                    :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`" 
+                    alt="Immagine non trovata"
                     
                 >
-                    <h3>
-                        Lingua: {{movie.original_language}}
-                    </h3>
 
-                </li>
-
-                <li> 
-
-                    
-                    
-                    <i class="fas fa-star"
-                        :class="{activeStar:Math.ceil((movie.vote_average)/2) >= 1}"
-
-                    ></i>
-                    <i class="fas fa-star"
-                        :class="{activeStar:Math.ceil((movie.vote_average)/2) >= 2}"
-                    ></i>
-                    <i class="fas fa-star"
-                        :class="{activeStar:Math.ceil((movie.vote_average)/2) >= 3}"
-                    
-                    ></i>
-                    <i class="fas fa-star"
-                        :class="{activeStar:Math.ceil((movie.vote_average)/2) >= 4}"
-                    
-                    ></i>
-                    <i class="fas fa-star"
-                        :class="{activeStar:Math.ceil((movie.vote_average)/2) >= 5}"
-                    ></i>
                 
-                    
-                </li>
-                    
+                <ul
+                class="box-movies" 
+                
+                
+                >
+
+
 
                     
-            </ul>
-        
-         
+                    
+                    
+                    <li> <h3>Titolo: {{movie.title == undefined ? movie.name : movie.title}}</h3> </li>
+                        
+                    <li><h3>Titolo originale: {{ movie.original_title == undefined ? movie.original_name : movie.original_title}}</h3></li> 
+
+                    <li v-if="flagsList.includes(movie.original_language)"
+                    >   
+                        <h3>
+                            Lingua: <img class="flag" :src="require(`@/assets/img/${movie.original_language}.png`)" alt="flags">
+                        </h3>
+                    </li>
+                    <li v-else
+                        
+                    >
+                        <h3>
+                            Lingua: {{movie.original_language}}
+                        </h3>
+
+                    </li>
+
+                    <li> 
+
+                        
+                        
+                        <i class="fas fa-star"
+                            :class="{activeStar:Math.ceil((movie.vote_average)/2) >= 1}"
+
+                        ></i>
+                        <i class="fas fa-star"
+                            :class="{activeStar:Math.ceil((movie.vote_average)/2) >= 2}"
+                        ></i>
+                        <i class="fas fa-star"
+                            :class="{activeStar:Math.ceil((movie.vote_average)/2) >= 3}"
+                        
+                        ></i>
+                        <i class="fas fa-star"
+                            :class="{activeStar:Math.ceil((movie.vote_average)/2) >= 4}"
+                        
+                        ></i>
+                        <i class="fas fa-star"
+                            :class="{activeStar:Math.ceil((movie.vote_average)/2) >= 5}"
+                        ></i>
+                    
+                        
+                    </li>
+                        
+
+                        
+                </ul>
             
+            
+                
 
 
-                
-                
+                    
+                    
+            </div>
+
         </div>
+
+        
                 
     </section>
 </template>
@@ -121,43 +130,60 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-    .contain{
-        position: relative;
-        
-        &:hover .box-movies{
-            display:block;
-        }
     
-        .box-movies{
-            flex-basis: calc(100%/5);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: none;
-            
-            
-            
-
-
-            li .flag{
-                width: 30px;
-                
-
-            }
-
-            i{
-                color: gray;
-                font-size: 20px;
-            }
-
-
-            i.activeStar{
-                color: #ff0022cc;
-            }
-            
-        }
+    
+    .contain{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
+
+    .contain-little{
+        position: relative;
+        flex-basis: calc(100%/ 5);
+        margin-right: 20px;
+    }
+
+    
+    .contain-little:hover .box-movies{
+        display: block;
+        
+    }
+
+    .box-movies{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.322);
+        height: 100%;
+        width: 100%;
+        padding: 50% 5%;
+        display: none;
+    }
+
+
+    
+    
+
+    li .flag{
+        width: 30px;
+        
+
+    }
+
+    i{
+        color: gray;
+        font-size: 20px;
+    }
+
+
+    i.activeStar{
+        color: #ff0022cc;
+    }
+            
+        
+    
 
 
 </style>

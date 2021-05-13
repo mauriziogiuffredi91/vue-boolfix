@@ -24,7 +24,7 @@ export default {
       apiKey: '8c6d856864a9db7703ff46ed6c4bd7bf',
       movieList: [],
       serieList:[],
-      //searchingMovies: '', per un eventuale reset
+      
       notFoundmovie: false,
       notFoundserie: false,
       
@@ -32,23 +32,7 @@ export default {
 
   },
   
-  /*funzione di ritorno a vuoto input */
-
-  /*
-  computed:{
-    filterMovies(){
-      
-      if(this.searchingMovies === ''){
-        return this.movieList;
-      }
-
-      return this.movieList.filter(element => {
-        return element.title.toLowerCase().includes(this.searchingMovies.toLowerCase());
-      })
-    }
-  },
-
-  */
+  
   
 
   methods: {
@@ -106,17 +90,7 @@ export default {
     },
 
 
-    /*funzione di ritorno a vuoto input*/ 
-
-    /*
-    searchFilm(text){
-      console.log(text);
-
-      this.searchingMovies = text;
-
-    }
-
-    */
+    
   },
 
     

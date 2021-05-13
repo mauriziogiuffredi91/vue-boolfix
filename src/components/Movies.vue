@@ -35,22 +35,22 @@
                     
                     
                     
-                    <li> <h3>Titolo: {{movie.title == undefined ? movie.name : movie.title}}</h3> </li>
+                    <li> <h4>Titolo: {{movie.title == undefined ? movie.name : movie.title}}</h4> </li>
                         
-                    <li><h3>Titolo originale: {{ movie.original_title == undefined ? movie.original_name : movie.original_title}}</h3></li> 
+                    <li><h4>Titolo originale: {{ movie.original_title == undefined ? movie.original_name : movie.original_title}}</h4></li> 
 
                     <li v-if="flagsList.includes(movie.original_language)"
                     >   
-                        <h3>
+                        <h4>
                             Lingua: <img class="flag" :src="require(`@/assets/img/${movie.original_language}.png`)" alt="flags">
-                        </h3>
+                        </h4>
                     </li>
                     <li v-else
                         
                     >
-                        <h3>
+                        <h4>
                             Lingua: {{movie.original_language}}
-                        </h3>
+                        </h4>
 
                     </li>
 
@@ -180,8 +180,15 @@ export default {
 
     i.activeStar{
         color: #ff0022cc;
+        margin: 0 5px;
     }
-            
+    i.fas {
+        margin-left: 5px;
+    }
+    
+    i.activeStar:first-of-type{
+        margin-left: 0;
+    }
         
     
 

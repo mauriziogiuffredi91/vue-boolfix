@@ -36,6 +36,8 @@
             </div>
             <div class="nav-right">
                 <input 
+                    :class="{show:statSearch, close:statSearch === false }"
+                    
                     type="text" 
                     placeholder="Cercare film/serie"
                     v-model.trim="searchText"
@@ -46,6 +48,7 @@
                 
 
                 <i 
+                    @click="clickShow"
                     class="search-button fas fa-search" 
                     type="submit" 
                     @click.prevent="$emit('perfSearch', searchText)"
@@ -87,8 +90,14 @@ export default {
     data(){
         return{
             searchText:'',
+            statSearch: undefined,
         };
     },
+    methods:{
+        clickShow(){
+            this.statSearch =! this.statSearch;
+        }
+    }
 
     
 };
@@ -103,6 +112,8 @@ export default {
         top: 0;
         z-index: 8;
         width: 100%;
+
+
 
 
 
@@ -153,7 +164,43 @@ export default {
             .nav-right{
                 display: flex;
                 align-items: center;
-                    
+                
+                input.show{
+                    animation: search-in .3s forwards;
+
+                }
+
+                input.close{
+                    animation: search-out .3s forwards;
+                }
+
+                @keyframes search-in{
+                    0% {
+                        width: 0;
+                        border: none;
+                        padding-left: 0;
+                    }
+                    100%{
+                        width: 299px;
+                        border: 1px solid white;
+                        padding-left: 10px;
+                    }
+                }
+
+                @keyframes search-out{
+                    0%{
+                        width: 299px;
+                        border: 1px solid white;
+                        padding-left: 10px;
+                        
+                    }
+                    100%{
+                        width: 0;
+                        border: none;
+                        padding-left: 0;
+                        
+                    }
+                }
                 .search-button{
                     color: white;
                     cursor: pointer;
@@ -164,6 +211,10 @@ export default {
                         color: red;
                     }
                 }
+
+                
+
+                
                 
                 ul{
                     display: flex;
@@ -200,6 +251,7 @@ export default {
                         width: 34px;
                         height: 34px;
                         background-color: gray;
+                        cursor: pointer;
                     }
                 }
             }

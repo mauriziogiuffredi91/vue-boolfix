@@ -2,7 +2,7 @@
     <section class="main-container">
 
         
-        <h2>Nerdflix a casa tua</h2>
+        
 
 
         <Notfound v-show="foundError" />

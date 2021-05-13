@@ -8,7 +8,18 @@
         <Notfound v-show="foundError" />
 
 
-        <div class="contain">
+        <!-- Errore nell'impostazione del contenuto se non ricercato nulla -->
+        <div 
+            
+            class="empty"
+        >
+            <h2>Cosa vuoi guardare ora?</h2>
+
+        </div>
+        <div 
+            
+            class="contain"
+        >
 
             <div class="contain-little"
                 v-for="(movie, index) in arrayMovie"

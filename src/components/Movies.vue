@@ -40,6 +40,7 @@
                     <li><h4>Titolo originale: {{ movie.original_title == undefined ? movie.original_name : movie.original_title}}</h4></li> 
 
                     <li v-if="flagsList.includes(movie.original_language)"
+                        class="flag-position"
                     >   
                         <h4>
                             Lingua: <img class="flag" :src="require(`@/assets/img/${movie.original_language}.png`)" alt="flags">
@@ -155,7 +156,7 @@ export default {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background-color: rgba(0, 0, 0, 0.322);
+        background-color: rgba(0, 0, 0, 0.71);
         height: 100%;
         width: 100%;
         padding: 50% 5%;
@@ -164,10 +165,14 @@ export default {
 
 
     
-    
+    .flag-position h4{
+        display: flex;
+        
+    }
 
     li .flag{
         width: 30px;
+        margin-left: 10px;
         
 
     }

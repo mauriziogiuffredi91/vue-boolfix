@@ -24,11 +24,11 @@
                 >
 
                 
-                <ul
-                class="box-movies" 
+                <ul class="box-movies">
+                 
                 
                 
-                >
+                
 
 
 

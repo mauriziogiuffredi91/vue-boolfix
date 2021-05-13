@@ -18,6 +18,7 @@
             >
 
                 <img 
+                    class="poster"
                     v-if="movie.poster_path"
                     :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`" 
                     
@@ -25,6 +26,7 @@
                 >
 
                 <img 
+                    class="poster"
                     v-else
                     src="@/assets/img/poster-placeholder.png" 
                 >
@@ -167,6 +169,11 @@ export default {
                 display: block;
                 
             }
+
+            .poster{
+                width: 300px;
+                height: 500px;
+            }
             
             .box-movies{
                 position: absolute;
@@ -178,6 +185,7 @@ export default {
                 width: 100%;
                 padding: 5%;
                 display: none;
+                overflow-y: auto;
                 
                 
                 .flag-position h4{

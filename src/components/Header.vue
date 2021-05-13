@@ -37,7 +37,7 @@
             <div class="nav-right">
                 <input 
                     :class="{show:statSearch, close:statSearch === false }"
-                    ref="focusHere"
+                    ref="focInput"
                     type="text" 
                     placeholder="Cercare film/serie"
                     v-model.trim="searchText"
@@ -87,25 +87,29 @@
 export default {
     name:'Header',
     
+    
 
     data(){
         return{
             searchText:'',
             statSearch: undefined,
             
+            
         };
     },
+    
     methods:{
         clickShow(){
             this.statSearch =! this.statSearch;
             console.log('here focus');
+            this.$refs.focInput.focus();
 
             
         },
 
-        focusInput(){
-            this.$refs.focusHere.focus();
-        }
+        
+
+        
 
 
         

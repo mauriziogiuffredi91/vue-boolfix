@@ -37,22 +37,23 @@
             <div class="nav-right">
                 <input 
                     :class="{show:statSearch, close:statSearch === false }"
+                    ref="focusHere"
                     type="text" 
                     placeholder="Cercare film/serie"
                     v-model.trim="searchText"
 
                 >
                     
-                    
                 
                 
 
                 <i 
-                    @click="clickShow"
+                    @click="clickShow()"
                     class="search-button fas fa-search" 
                     type="submit" 
                     @click.prevent="$emit('perfSearch', searchText)"
                 >
+                    
                     
                     
                 </i>
@@ -91,12 +92,23 @@ export default {
         return{
             searchText:'',
             statSearch: undefined,
+            
         };
     },
     methods:{
         clickShow(){
             this.statSearch =! this.statSearch;
+            console.log('here focus');
+
+            
+        },
+
+        focusInput(){
+            this.$refs.focusHere.focus();
         }
+
+
+        
     }
 
     

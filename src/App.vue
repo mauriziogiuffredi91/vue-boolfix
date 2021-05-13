@@ -37,6 +37,8 @@ export default {
 
   methods: {
     getProduct(element){
+
+      
       if(element === ''){
         this.movieList = [];
         this.serieList = [];

@@ -37,12 +37,12 @@
             <div class="nav-right">
                 <input 
                     :class="{show:statSearch, close:statSearch === false }"
-                    
                     type="text" 
                     placeholder="Cercare film/serie"
                     v-model.trim="searchText"
 
                 >
+                    
                     
                 
                 

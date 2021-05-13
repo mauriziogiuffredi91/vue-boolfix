@@ -39,6 +39,18 @@
                         
                     <li><h4>Titolo originale: {{ movie.original_title == undefined ? movie.original_name : movie.original_title}}</h4></li> 
 
+                    <li
+                        v-if="movie.overview !== '' "
+                    >
+                        <h4>Overview: {{movie.overview}}</h4>
+                        
+                    </li>
+
+                    <li v-else>
+                        <h4>Overview non disponibile</h4>
+                    </li>
+                        
+
                     <li v-if="flagsList.includes(movie.original_language)"
                         class="flag-position"
                     >   
@@ -158,7 +170,7 @@ export default {
                 background-color: rgba(0, 0, 0, 0.71);
                 height: 100%;
                 width: 100%;
-                padding: 50% 5%;
+                padding: 5%;
                 display: none;
                 
                 

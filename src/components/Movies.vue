@@ -4,7 +4,7 @@
         
         <h2>Nerdflix a casa tua</h2>
         
-        
+        <Notfound v-show="foundError" />
         <div class="contain"
             v-for="(movie, index) in arrayMovie"
             :key="index"
@@ -91,13 +91,19 @@
 </template>
 
 <script>
+import Notfound from '@/components/Notfound.vue'
 
 
 
 
 export default {
     name:'Movies',
-    props:['arrayMovie'],
+    props:['arrayMovie', 'foundError'],
+    
+    components:{
+        Notfound
+        
+    },
     
         
     data(){
@@ -115,13 +121,21 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-    .movies{
-        max-width: 1600px;
-        margin: 0 auto;
-        margin-top: 20px;
+    .contain{
+        position: relative;
+        
+        &:hover .box-movies{
+            display:block;
+        }
     
         .box-movies{
             flex-basis: calc(100%/5);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            
             
             
 

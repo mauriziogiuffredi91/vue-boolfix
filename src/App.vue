@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header @perfSearch="getProduct"/>
-    <Movies :arrayMovie="movieList.concat(serieList)" />
+    <Movies :arrayMovie="movieList.concat(serieList)" :foundError="notFoundmovie && notFoundserie" />
     
   </div>
 </template>
@@ -25,6 +25,8 @@ export default {
       movieList: [],
       serieList:[],
       //searchingMovies: '', per un eventuale reset
+      notFoundmovie: false,
+      notFoundserie: false,
       
     }
 
@@ -72,6 +74,7 @@ export default {
         }).then(res => {
           console.log(res.data.results);
           this.movieList = res.data.results;
+          this.notFoundmovie = this.movieList.length === 0;
         })
         .catch(err => {
           console.log('Errore', err);
@@ -85,6 +88,7 @@ export default {
         }).then(res => {
           console.log(res.data.results);
           this.serieList = res.data.results;
+          this.notFoundserie = this.serieList.length === 0;
         })
         .catch(err => {
           console.log('Errore', err);

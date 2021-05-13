@@ -137,63 +137,71 @@ export default {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+    
+    
+    
+        .contain-little{
+            position: relative;
+            flex-basis: calc(100%/ 5);
+            margin-right: 20px;
+            
+            &:hover .box-movies{
+                display: block;
+                
+            }
+            
+            .box-movies{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: rgba(0, 0, 0, 0.71);
+                height: 100%;
+                width: 100%;
+                padding: 50% 5%;
+                display: none;
+                
+                
+                .flag-position h4{
+                    display: flex;
+                    
+                }
+
+                li .flag{
+                    width: 30px;
+                    margin-left: 10px;
+                    
+
+                }
+
+                i{
+                    color: gray;
+                    font-size: 20px;
+                }
+
+
+                i.activeStar{
+                    color: #ff0022cc;
+                    margin: 0 5px;
+                }
+                i.fas {
+                    margin-left: 5px;
+                }
+                
+                i.activeStar:first-of-type{
+                    margin-left: 0;
+                }
+            }
+        }
+    
     }
 
-    .contain-little{
-        position: relative;
-        flex-basis: calc(100%/ 5);
-        margin-right: 20px;
-    }
 
     
-    .contain-little:hover .box-movies{
-        display: block;
-        
-    }
 
-    .box-movies{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: rgba(0, 0, 0, 0.71);
-        height: 100%;
-        width: 100%;
-        padding: 50% 5%;
-        display: none;
-    }
 
 
     
-    .flag-position h4{
-        display: flex;
-        
-    }
-
-    li .flag{
-        width: 30px;
-        margin-left: 10px;
-        
-
-    }
-
-    i{
-        color: gray;
-        font-size: 20px;
-    }
-
-
-    i.activeStar{
-        color: #ff0022cc;
-        margin: 0 5px;
-    }
-    i.fas {
-        margin-left: 5px;
-    }
-    
-    i.activeStar:first-of-type{
-        margin-left: 0;
-    }
         
     
 

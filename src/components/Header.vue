@@ -1,54 +1,81 @@
 <template>
     <header>
 
-        <div class="nav-left">
-            <a href="https://fontmeme.com/netflix-font/">
-                <img src="https://fontmeme.com/permalink/210510/118a19bf945a6213de0a49fdb190e65d.png" alt="netflix-font" border="0">
-            </a>
+        <div class="bar">
 
-            <ul>
-                <li>
-                    <h4>Home</h4>
-                </li>
 
-                <li>
-                    <h4>Serie Tv</h4>
-                </li>
 
-                <li>
-                    <h4>Film</h4>
-                </li>
 
-                <li>
-                    <h4>Nuovi e popolari</h4>
-                </li>
+            <div class="nav-left">
+                <a href="https://fontmeme.com/netflix-font/">
+                    <img src="https://fontmeme.com/permalink/210510/118a19bf945a6213de0a49fdb190e65d.png" alt="netflix-font" border="0">
+                </a>
 
-                <li>
-                    <h4>La mia lista</h4>
-                </li>
-            </ul>
+                <ul>
+                    <li>
+                        <h4>Home</h4>
+                    </li>
 
-        </div>
-        <div class="nav-right">
-            <input 
-                type="text" 
-                placeholder="Cercare film/serie"
-                v-model.trim="searchText"
+                    <li>
+                        <h4>Serie Tv</h4>
+                    </li>
 
-            >
+                    <li>
+                        <h4>Film</h4>
+                    </li>
+
+                    <li>
+                        <h4>Nuovi e popolari</h4>
+                    </li>
+
+                    <li>
+                        <h4>La mia lista</h4>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="nav-right">
+                <input 
+                    type="text" 
+                    placeholder="Cercare film/serie"
+                    v-model.trim="searchText"
+
+                >
+                    
+                
                 
 
-            
+                <i 
+                    class="search-button fas fa-search" 
+                    type="submit" 
+                    @click.prevent="$emit('perfSearch', searchText)"
+                >
+                    
+                    
+                </i>
 
-            <button 
-                class="searchBtn" 
-                type="submit" 
-                @click.prevent="$emit('perfSearch', searchText)"
-            >
-                
-                Search 
-            </button>
+                <ul>
+                    <li>
+                        <h4>Bambini</h4>
+
+
+                    </li>
+
+                    <li>
+                        <i class="fas fa-gift"></i>
+                    </li>
+
+                    <li>
+                        <i class="fas fa-bell"></i>
+                    </li>
+
+                    <li>
+                        <div class="box-profile"></div>
+                    </li>
+                </ul>
+            </div>
         </div>
+
     </header>
 </template>
 
@@ -69,50 +96,119 @@ export default {
 
 <style scoped lang="scss">
 
-    
     header{
-        background-color: transparent;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px;
+        background-color: rgba(51, 51, 51, 0.692);
+        padding: 9px 70px;
+        position: fixed;
+        top: 0;
+        z-index: 8;
+        width: 100%;
 
 
-        
-            
-        .nav-left{
 
+
+        .bar{
             display: flex;
-            img{
-                width: 200px;
-                margin-right: 30px;
-            }
+            justify-content: space-between;
+            align-items: center;
             
-            ul{
+
+
+            
+                
+            .nav-left{
+                display: flex;
+
+                img{
+                    width: 200px;
+                    margin-right: 30px;
+                    transition: all .2s ease-in-out;
+
+                    &:hover{
+                        transform: scale(1.4);
+                    }
+                }
+                
+                ul{
+                    display: flex;
+                    align-items: center;
+                }
+
+                ul li{
+                    margin-right: 20px;
+                    
+
+                    h4{
+                    cursor: pointer;  
+                    
+                        &:hover{
+                            color: white;
+                        }
+                    }
+                }
+
+
+            }
+
+            .nav-right{
                 display: flex;
                 align-items: center;
-            }
+                    
+                .search-button{
+                    color: white;
+                    cursor: pointer;
+                    font-size: 20px;
+                    margin: 0 10px;
 
-            ul li{
-                margin-right: 20px;
+                    &:active{
+                        color: red;
+                    }
+                }
                 
+                ul{
+                    display: flex;
+                    align-items: center;
 
-                h4{
-                  cursor: pointer;  
-                
-                    &:hover{
-                        color: white;
+                    li{
+                        margin: 0 10px;
+                    }
+
+                    
+                    li h4{
+                        text-transform: uppercase;
+                        cursor: pointer;
+
+                        &:hover{
+                            color: white;
+                        }
+                        
+                    }
+
+                    li i{
+                        color: rgba(255, 255, 255, 0.74);
+                        font-size: 20px;
+                        cursor: pointer;
+                        transition: all .2s ease-in-out; 
+
+                        &:hover{
+                            transform: scale(1.5);
+                            color: rgba(255, 0, 0, 0.63);
+                        }
+                    }
+
+                    li .box-profile{
+                        width: 34px;
+                        height: 34px;
+                        background-color: gray;
                     }
                 }
             }
 
+            
 
+            
+            
         }
-
-        
-
-        
-        
     }
     
 

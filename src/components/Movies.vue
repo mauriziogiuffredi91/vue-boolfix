@@ -9,10 +9,10 @@
         >
             
 
-            <Start 
+            <Start />
                 
                 
-            />
+            
 
         </div>
         
@@ -22,10 +22,10 @@
 
 
         
-        <div 
+        <div class="contain">
+        
             
-            class="contain"
-        >
+            
 
             <div class="contain-little"
                 v-for="(movie, index) in arrayMovie"

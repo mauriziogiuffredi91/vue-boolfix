@@ -222,9 +222,13 @@ export default {
                     cursor: pointer;
                     font-size: 20px;
                     margin: 0 10px;
+                    
+                    
+                    
 
                     &:active{
                         color: red;
+                        
                     }
                 }
 

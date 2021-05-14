@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header @perfSearch="getProduct"/>
-    <Movies :arrayMovie="movieList.concat(serieList)" :foundError="notFoundmovie && notFoundserie" />
+    <Movies :arrayMovie="movieList.concat(serieList)" :foundError="notFoundmovie && notFoundserie" :startNet="intro"/>
     
   </div>
 </template>
@@ -24,7 +24,7 @@ export default {
       apiKey: '8c6d856864a9db7703ff46ed6c4bd7bf',
       movieList: [],
       serieList:[],
-      
+      intro: true,
       notFoundmovie: false,
       notFoundserie: false,
       

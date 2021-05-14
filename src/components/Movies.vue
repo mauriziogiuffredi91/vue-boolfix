@@ -2,20 +2,26 @@
     <section class="main-container">
 
         
+        <div 
+            
+            
+            class="empty"
+        >
+            
+
+            <Start 
+                v-show="startNet"
+                :class="{starterNerd: startNet }"
+            />
+
+        </div>
         
 
 
         <Notfound v-show="foundError" />
 
 
-        <!-- Errore nell'impostazione del contenuto se non ricercato nulla -->
-        <div 
-            
-            class="empty"
-        >
-            <h2>Cosa vuoi guardare ora?</h2>
-
-        </div>
+        
         <div 
             
             class="contain"
@@ -132,6 +138,7 @@
 </template>
 
 <script>
+import Start from '@/components/Start.vue'
 import Notfound from '@/components/Notfound.vue'
 
 
@@ -139,10 +146,11 @@ import Notfound from '@/components/Notfound.vue'
 
 export default {
     name:'Movies',
-    props:['arrayMovie', 'foundError'],
+    props:['arrayMovie', 'foundError', 'startNet' ],
     
     components:{
-        Notfound
+        Notfound,
+        Start,
         
     },
     
@@ -164,6 +172,9 @@ export default {
 <style lang='scss' scoped>
     
     
+    .starterNerd{
+        display: none;
+    }
     .contain{
         display: flex;
         flex-wrap: wrap;

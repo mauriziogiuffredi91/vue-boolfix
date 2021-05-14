@@ -61,6 +61,7 @@ export default {
           console.log(res.data.results);
           this.movieList = res.data.results;
           this.notFoundmovie = this.movieList.length === 0;
+          this.intro = false;
         })
         .catch(err => {
           console.log('Errore', err);
@@ -75,6 +76,7 @@ export default {
           console.log(res.data.results);
           this.serieList = res.data.results;
           this.notFoundserie = this.serieList.length === 0;
+          this.intro = false;
         })
         .catch(err => {
           console.log('Errore', err);

@@ -4,14 +4,14 @@
         
         <div 
             
-            
+            v-show="startNet"
             class="empty"
         >
             
 
             <Start 
-                v-show="startNet"
-                :class="{starterNerd: startNet }"
+                
+                
             />
 
         </div>
@@ -172,9 +172,7 @@ export default {
 <style lang='scss' scoped>
     
     
-    .starterNerd{
-        display: none;
-    }
+    
     .contain{
         display: flex;
         flex-wrap: wrap;
